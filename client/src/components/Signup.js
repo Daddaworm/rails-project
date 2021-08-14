@@ -31,6 +31,7 @@ const Signup = ({setCurrentUser, setErrors, errors}) => {
 
     return(
         <div>
+            <br/>
             <form onSubmit={onSubmit}>
                 <label>Username</label>
                 <input onChange={onChange} name='username' type='text'/>
@@ -43,6 +44,7 @@ const Signup = ({setCurrentUser, setErrors, errors}) => {
                 <br/>
                 <input type='submit' value='Signup'/>
             </form>
+            <br/>
             <Errors errors={errors} />
         </div>
     )

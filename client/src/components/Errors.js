@@ -4,7 +4,7 @@ const Errors = ({errors}) => {
 
 
     const renderErrors = () => {
-        return errors.map(error => <p><br/>{error}</p>)
+        return errors.map(error => <p><ol>{error}</ol></p>)
     }
 
 

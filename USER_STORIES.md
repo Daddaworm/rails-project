@@ -32,7 +32,13 @@ COMMENT (user has read, create)
 
 - stretch - Add a comments section to each blog post where other users can comment. Blog owner will have full crud.  Others will have only read.
 
-## COMPONENTS NEEDED
+
+## Front-End
+
+Signup
+
+
+Components needed?
 -Signup.js
 -Login.js
 -Logout.js

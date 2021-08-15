@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # resources :comments
-  # resources :posts
+  resources :posts
   resources :users
   get '/me', to: 'users#show'
 

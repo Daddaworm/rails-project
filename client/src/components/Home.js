@@ -1,11 +1,17 @@
 import Errors from './Errors'
+import Post from './Post'
 
 const Home = ({ errors }) => {
+
+
+
+
 
     return(
         <div>
             <Errors errors={errors} />
-            <h1>'Welcome to your homepage!'</h1>
+            <h1>Welcome to your homepage!</h1>
+            <Post />
         </div>
     )
 

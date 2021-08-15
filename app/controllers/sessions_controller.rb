@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+    # POST /login
     def create
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
@@ -10,8 +11,13 @@ class SessionsController < ApplicationController
         end
     end
 
+    # DELETE /logout 
     def destroy
-
+        if session[:user_id]
+            session.delete :user_id
+        else
+            render json: { errors: ["You are not logged in"] }, status: :unauthorized
+        end
     end
 
 end

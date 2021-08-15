@@ -17,13 +17,6 @@ const App = () => {
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState(null);
   const [errors, setErrors] = useState([]);
-
-  // const handleCreateUser = (data) => {
-  //   data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
-  //   if(!data.errors) {
-  //     history.push('/')
-  //   }
-  // }
   
   const handleUserLoginAndSignup = (data) => {
     data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
@@ -47,7 +40,7 @@ const App = () => {
       { currentUser ? `${currentUser.username} is currently logged in.` : null }
       <Switch>
         <Route exact path='/'>
-          <Home errors={errors} />
+          <Home errors={errors} currentUser={currentUser} />
         </Route>
         <Route path='/signup'>
           <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />

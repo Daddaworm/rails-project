@@ -7,12 +7,18 @@ class UsersController < ApplicationController
         render json: { user: user }, status: :created
     end
 
-    # GET /me
+    # GET /me (Auto Login feature)
     def show
-        if session[:user_id]
-            user = User.find(session[:user_id])
-            render json: { user: user }, status: :ok
+        user = User.find_by(id: session[:user_id])
+        if user 
+            render json: { user: user }
+        else
+            render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
+        # if session[:user_id]
+        #     user = User.find(session[:user_id])
+        #     render json: { user: user }, status: :ok
+        # end
     end
 
 

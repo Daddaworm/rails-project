@@ -1,10 +1,11 @@
+import Errors from './Errors'
 
-
-const Home = () => {
+const Home = ({ errors }) => {
 
     return(
         <div>
-            <h1>This is the home page</h1>
+            <Errors errors={errors} />
+            <h1>Welcome to your homepage!</h1>
         </div>
     )
 

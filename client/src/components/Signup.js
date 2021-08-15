@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Errors from './Errors'
 
-const Signup = ({ handleCreateUser, errors }) => {
+const Signup = ({ handleUserLoginAndSignup, errors }) => {
 
     const [state, setState] = useState({})
     
@@ -22,7 +22,7 @@ const Signup = ({ handleCreateUser, errors }) => {
         }
         fetch('/users', config)
         .then(resp => resp.json())
-        .then(data => handleCreateUser(data))
+        .then(data => handleUserLoginAndSignup(data))
     }
 
 

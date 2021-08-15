@@ -5,21 +5,34 @@ import { Form, Button } from 'react-bootstrap'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
+import Logout from './components/Logout'
 import Navbar from './components/Navbar'
 import { useState, useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 
 
 
-function App() {
+const App = () => {
 
+  const history = useHistory()
   const [currentUser, setCurrentUser] = useState(null);
   const [errors, setErrors] = useState([]);
 
-  const handleCreateUser = (data) => {
-    data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
-}
+  // const handleCreateUser = (data) => {
+  //   data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
+  //   if(!data.errors) {
+  //     history.push('/')
+  //   }
+  // }
   
+  const handleUserLoginAndSignup = (data) => {
+    data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
+    if(!data.errors) {
+      history.push('/')
+      setErrors([])
+    }
+  }
+
   const checkSessionId = () => {
     fetch('/me')
     .then(resp => resp.json())
@@ -34,13 +47,16 @@ function App() {
       { currentUser ? `${currentUser.username} is currently logged in.` : null }
       <Switch>
         <Route exact path='/'>
-          <Home />
+          <Home errors={errors} />
         </Route>
         <Route path='/signup'>
-          <Signup handleCreateUser={handleCreateUser} errors={errors}/>
+          <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
         <Route path='/login'>
-            <Login />
+            <Login handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+        </Route>
+        <Route path='/logout'>
+            <Logout setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>
     </div>

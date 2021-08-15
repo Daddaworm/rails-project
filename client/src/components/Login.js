@@ -1,19 +1,28 @@
-
-
 import { useState } from 'react'
 import Errors from './Errors'
 
-const Signup = ({ errors }) => {
+const Login = ({ handleUserLoginAndSignup, errors }) => {
 
     const [state, setState] = useState({})
     
-
     const onChange = (e) => {
         setState({...state, [e.target.name]: e.target.value})
     }
 
     const onSubmit = (e) => {
-    
+        e.preventDefault()
+        let config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(state)
+        }
+        fetch('/login', config)
+        .then(resp => resp.json())
+        .then(data => handleUserLoginAndSignup(data))
+
     }
 
 
@@ -30,11 +39,11 @@ const Signup = ({ errors }) => {
                 <input type='submit' value='Login'/>
             </form>
             <br/>
-            {/* <Errors errors={errors} /> */}
+            <Errors errors={errors} />
         </div>
     )
 
 
 }
 
-export default Signup;
+export default Login;

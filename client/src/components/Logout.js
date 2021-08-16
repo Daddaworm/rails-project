@@ -23,6 +23,7 @@ const Logout = ({ setCurrentUser }) => {
 
     return(
         <div>
+            <br/>
             <h1>Logging out...</h1>
         </div>
     )

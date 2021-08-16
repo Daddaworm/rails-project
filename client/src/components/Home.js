@@ -12,7 +12,7 @@ const Home = ({ errors }) => {
         <div>
             <Errors errors={errors} />
             
-            <h1>Welcome to your homepage!</h1>
+            {/* <h1>Welcome to your homepage!</h1> */}
             <Post />
         </div>
     )

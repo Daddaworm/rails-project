@@ -29,17 +29,20 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
     return(
         <div>
             <br/>
+            <h5>Member sign in.</h5>
+            <br/>
             <form onSubmit={onSubmit}>
-                <label>Username</label>
-                <input onChange={onChange} name='username' type='text'/>
+                {/* <label>Username</label> */}
+                <input onChange={onChange} name='username' type='text' placeholder='username' />
                 <br/>
-                <label>Password</label>
-                <input onChange={onChange} name='password' type='password'/>
+                {/* <label>Password</label> */}
+                <input onChange={onChange} name='password' type='password' placeholder='password' />
                 <br/>
                 <input type='submit' value='Login'/>
             </form>
             <br/>
             <Errors errors={errors} />
+            <p>Already a member?  Please sign in above.</p>
         </div>
     )
 

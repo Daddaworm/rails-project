@@ -29,20 +29,24 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
     return(
         <div>
             <br/>
+            <h5>Become a member of our community!</h5>
+            <br/>
             <form onSubmit={onSubmit}>
-                <label>Username</label>
-                <input onChange={onChange} name='username' type='text'/>
+                {/* <label>Username</label> */}
+                <input onChange={onChange} name='username' type='text' placeholder='username' />
                 <br/>
-                <label>Password</label>
-                <input onChange={onChange} name='password' type='password'/>
+                {/* <label>Password</label> */}
+                <input onChange={onChange} name='password' type='password' placeholder='password' />
                 <br/>
-                <label>Password Confirmation</label>
-                <input onChange={onChange} name='password_confirmation' type='password'/>
+                {/* <label>Password Confirmation</label> */}
+                <input onChange={onChange} name='password_confirmation' type='password' placeholder='password confirmation' />
+                <br/>
                 <br/>
                 <input type='submit' value='Signup'/>
             </form>
             <br/>
             <Errors errors={errors} />
+            <p>Members who sign up will have ability to create and edit their own blogs.</p>
         </div>
     )
 

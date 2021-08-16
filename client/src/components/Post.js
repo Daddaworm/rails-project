@@ -20,6 +20,7 @@ const Post = () => {
                     <Form.Label>Post Content</Form.Label>
                     <Form.Control as="textarea" rows={3} />
                 </Form.Group>
+                <Button as="input" type="submit" value="Submit" />{' '}
             </Form>
         </div>
     )

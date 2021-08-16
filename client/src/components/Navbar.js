@@ -44,19 +44,18 @@ const NavBar = ({ currentUser }) => {
         <div>
             <Navbar variant='dark' bg='dark' expand='lg'>
             <Container fluid>
-            <Navbar.Brand href="/">Blog App</Navbar.Brand>
+            <Navbar.Brand href="/home">Blog App</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar-dark-example" />
             <Navbar.Collapse id="navbar-dark-example">
                 <Nav>
                     <NavDropdown
                         id="nav-dropdown-dark-example"
                         title="Menu"
-                        menuVariant="dark"
-                    >
+                        menuVariant="dark">
                         <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
                         <NavDropdown.Item href="/login">Login</NavDropdown.Item>
                         <NavDropdown.Item href="/posts">Your Posts</NavDropdown.Item>
-                        <NavDropdown.Item href="/post">Create Post</NavDropdown.Item>
+                        <NavDropdown.Item href="/newpost">Create Post</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="/logout">Log Out</NavDropdown.Item>
                     </NavDropdown>
@@ -64,7 +63,7 @@ const NavBar = ({ currentUser }) => {
             </Navbar.Collapse>
             <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <a href="/login">{currentUser ? `${currentUser.username}` : "Not Signed In"}</a>
+                            Signed in as: <a href="/home">{currentUser ? `${currentUser.username}` : "Not Signed In"}</a>
                         </Navbar.Text>
                     </Navbar.Collapse>
             </Container>

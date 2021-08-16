@@ -1,11 +1,19 @@
 import Errors from './Errors'
-import Post from './Post'
+import NewPost from './NewPost'
 import Nav from 'react-bootstrap/Nav'
+import { useEffect } from 'react'
 
 const Home = ({ errors }) => {
 
 
 
+
+    const fetchPosts = () => {
+        
+    }
+
+
+    useEffect(fetchPosts)
 
 
     return (
@@ -13,7 +21,7 @@ const Home = ({ errors }) => {
             <Errors errors={errors} />
             
             {/* <h1>Welcome to your homepage!</h1> */}
-            <Post />
+            <NewPost />
         </div>
     )
 

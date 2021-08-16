@@ -6,7 +6,7 @@ import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
 import Logout from './components/Logout'
-import Post from './components/Post'
+import Post from './components/NewPost'
 import NavBar from './components/NavBar'
 import { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
@@ -23,7 +23,7 @@ const App = () => {
   const handleUserLoginAndSignup = (data) => {
     data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
     if(!data.errors) {
-      history.push('/')
+      history.push('/home')
       setErrors([])
     }
   }
@@ -53,7 +53,7 @@ const App = () => {
         <Route exact path='/logout'>
             <Logout setCurrentUser={setCurrentUser}/>
         </Route>
-        <Route exact path='/post'>
+        <Route exact path='/newpost'>
             <Post setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>

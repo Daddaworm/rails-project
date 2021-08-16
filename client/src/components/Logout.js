@@ -11,9 +11,15 @@ const Logout = ({ setCurrentUser }) => {
         }
 
         fetch('/logout', config)
-        setCurrentUser(null)
-        history.push('/login')
+        handleLogout()
     })
+    
+    const handleLogout = () => {
+        setCurrentUser(null)
+        setTimeout(() => {
+            history.push('/login')
+        }, 2000)
+    }
 
     return(
         <div>

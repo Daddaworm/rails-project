@@ -6,9 +6,10 @@ import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
 import Logout from './components/Logout'
-import Navbar from './components/Navbar'
+import NavBar from './components/NavBar'
 import { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
+
 
 
 
@@ -36,19 +37,19 @@ const App = () => {
   
   return (
     <div className="App">
-      <Navbar />
+      <NavBar currentUser={currentUser} />
       { currentUser ? `${currentUser.username} is currently logged in.` : null }
       <Switch>
         <Route exact path='/'>
           <Home errors={errors} currentUser={currentUser} />
         </Route>
-        <Route path='/signup'>
+        <Route exact path='/signup'>
           <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
-        <Route path='/login'>
+        <Route exact path='/login'>
             <Login handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
-        <Route path='/logout'>
+        <Route exact path='/logout'>
             <Logout setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>

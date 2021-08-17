@@ -20,6 +20,7 @@ const Home = ({ errors, posts }) => {
             <Errors errors={errors} />
             <p>home page</p>
             {generatePosts()}
+            <br/>
             {/* <h1>Welcome to your homepage!</h1> */}
             {/* <NewPost /> */}
         </div>

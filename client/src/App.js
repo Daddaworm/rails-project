@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Post from './components/NewPost'
+import EditPost from './components/EditPost';
 import NavBar from './components/NavBar'
 import { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
@@ -51,7 +52,9 @@ useEffect(() => {
   return (
     <div className="App">
       <NavBar currentUser={currentUser} />
-      { currentUser ? `Welcome back ${currentUser.username}!` : null }
+        <h1>
+        { currentUser ? `Welcome back ${currentUser.username}!` : null }
+        </h1>
       <Switch>
         <Route exact path='/home'>
           <Home errors={errors} currentUser={currentUser} posts={posts} />
@@ -66,7 +69,10 @@ useEffect(() => {
             <Logout setCurrentUser={setCurrentUser}/>
         </Route>
         <Route exact path='/newpost'>
-            <Post setCurrentUser={setCurrentUser}/>
+            <Post setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+        </Route>
+        <Route exact path='/editpost'>
+            <EditPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
       </Switch>
     </div>

@@ -30,6 +30,7 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
         <div>
             <br/>
             <h5>Member sign in.</h5>
+            <p>Already a member?  Please sign in below.</p>
             <br/>
             <form onSubmit={onSubmit}>
                 {/* <label>Username</label> */}
@@ -42,7 +43,6 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
             </form>
             <br/>
             <Errors errors={errors} />
-            <p>Already a member?  Please sign in above.</p>
         </div>
     )
 

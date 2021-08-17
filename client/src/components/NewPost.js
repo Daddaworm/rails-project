@@ -22,7 +22,7 @@ const NewPost = ({ handleUserLoginAndSignup, errors }) => {
         }
         fetch('/posts', config)
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => handleUserLoginAndSignup(data))
 
     }
 
@@ -37,7 +37,7 @@ const NewPost = ({ handleUserLoginAndSignup, errors }) => {
                     <input type="submit" value="Submit"/>
             </form> 
             <br/>
-            {/* <Errors errors={errors} /> */}
+            <Errors errors={errors} />
         </div>
     )
 

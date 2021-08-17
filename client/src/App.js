@@ -19,6 +19,7 @@ const App = () => {
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState(null);
   const [errors, setErrors] = useState([]);
+  const [posts, setPosts] = useState([]);
   
   const handleUserLoginAndSignup = (data) => {
     data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
@@ -35,14 +36,25 @@ const App = () => {
   }
   
   useEffect(checkSessionId, []);
+
+
+  const fetchPosts = () => {
+    fetch('/posts')
+    .then(resp => resp.json())
+    .then(data => setPosts(data))
+}
+
+useEffect(() => {
+  fetchPosts()
+}, [])
   
   return (
     <div className="App">
       <NavBar currentUser={currentUser} />
       { currentUser ? `Welcome back ${currentUser.username}!` : null }
       <Switch>
-        <Route exact path='/'>
-          <Home errors={errors} currentUser={currentUser} />
+        <Route exact path='/home'>
+          <Home errors={errors} currentUser={currentUser} posts={posts} />
         </Route>
         <Route exact path='/signup'>
           <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />

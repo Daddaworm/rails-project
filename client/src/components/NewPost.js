@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Errors from './Errors'
 
-const NewPost = ({ handleUserLoginAndSignup, errors }) => {
+const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
 
     const [state, setState] = useState({})
     
@@ -22,7 +22,10 @@ const NewPost = ({ handleUserLoginAndSignup, errors }) => {
         }
         fetch('/posts', config)
         .then(resp => resp.json())
-        .then(data => handleUserLoginAndSignup(data))
+        .then(data => {
+            setPosts([...posts, data.post])
+            handleUserLoginAndSignup(data)
+        })
 
     }
 

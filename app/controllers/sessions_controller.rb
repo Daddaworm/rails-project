@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         end
     end
 
+
     # DELETE /logout 
     def destroy
         if session[:user_id]

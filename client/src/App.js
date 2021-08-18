@@ -6,7 +6,7 @@ import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
 import Logout from './components/Logout'
-import Post from './components/NewPost'
+import NewPost from './components/NewPost'
 import EditPost from './components/EditPost';
 import NavBar from './components/NavBar'
 import { useState, useEffect } from 'react'
@@ -42,12 +42,21 @@ const App = () => {
   const fetchPosts = () => {
     fetch('/posts')
     .then(resp => resp.json())
-    .then(data => setPosts(data))
-}
+    .then(data => {
+      console.log(data)
+      setPosts(data)
+    })
+  }
 
 useEffect(() => {
   fetchPosts()
 }, [])
+
+// handleDeletePost = (deletedPost) => {
+//   setPosts((posts) =>
+//     posts.filter((post) => post.id !== deletedPost.id)
+//     )
+// }
   
   return (
     <div className="App">
@@ -57,7 +66,7 @@ useEffect(() => {
         </h1>
       <Switch>
         <Route exact path='/home'>
-          <Home errors={errors} currentUser={currentUser} posts={posts} />
+          <Home errors={errors} currentUser={currentUser} posts={posts} setPosts={setPosts} />
         </Route>
         <Route exact path='/signup'>
           <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
@@ -69,7 +78,7 @@ useEffect(() => {
             <Logout setCurrentUser={setCurrentUser}/>
         </Route>
         <Route exact path='/newpost'>
-            <Post setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+            <NewPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} setPosts={setPosts} posts={posts} />
         </Route>
         <Route exact path='/editpost'>
             <EditPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />

@@ -14,5 +14,4 @@ const EditPost = () => {
         </div>
     )
 }
-
 export default EditPost

@@ -4,14 +4,11 @@ import Post from './Post'
 import Nav from 'react-bootstrap/Nav'
 import { useEffect, useState } from 'react'
 
-const Home = ({ errors, posts, setPosts}) => {
-
-
-
+const Home = ({ currentUser, errors, posts, setPosts}) => {
 
     const generatePost = () => {
         return posts.map(post => {
-            return <Post key={post.id} post={post} setPosts={setPosts} posts={posts} />
+            return <Post key={post.id} post={post} setPosts={setPosts} posts={posts} errors={errors} currentUser={currentUser} />
         })
     }
 
@@ -25,6 +22,5 @@ const Home = ({ errors, posts, setPosts}) => {
             {/* <NewPost /> */}
         </div>
     )
-
 }
 export default Home

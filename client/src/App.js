@@ -1,7 +1,6 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Form, Button } from 'react-bootstrap'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Login from './components/Login'
@@ -11,9 +10,6 @@ import EditPost from './components/EditPost';
 import NavBar from './components/NavBar'
 import { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
-
-
-
 
 const App = () => {
 
@@ -48,16 +44,11 @@ const App = () => {
     })
   }
 
-useEffect(() => {
-  fetchPosts()
-}, [])
-
-// handleDeletePost = (deletedPost) => {
-//   setPosts((posts) =>
-//     posts.filter((post) => post.id !== deletedPost.id)
-//     )
-// }
+  useEffect(() => {
+    fetchPosts()
+  }, [])
   
+
   return (
     <div className="App">
       <NavBar currentUser={currentUser} />

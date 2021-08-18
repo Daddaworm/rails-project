@@ -24,42 +24,40 @@ class PostsController < ApplicationController
         end
     end
 
+    # GET /posts
+    def index
+        posts = Post.all 
+        render json: posts.reverse 
+    end
+
+    # GET /posts/:id
+    def show
+        post = find_post
+        render json: { post: post }
+    end
+
+    # POST /posts
+    def create
+        if session[:user_id]
+            post = Post.create(post_params)
+            post.update!(user_id: session[:user_id])
+            render json: { post: post }, status: :created
+        else
+            render json: { errors: ["You must be logged in to create a post"] }, status: :unauthorized
+        end
+    end
+
     # DELETE /posts/:id
- # GET /posts
- def index
-    posts = Post.all 
-    render json: posts.reverse 
-end
-
-# GET /posts/:id
-def show
-    post = find_post
-    render json: { post: post }
-end
-
-# POST /posts
-def create
-    if session[:user_id]
-        post = Post.create(post_params)
-        post.update!(user_id: session[:user_id])
-        render json: { post: post }, status: :created
-    else
-        render json: { errors: ["You must be logged in to create a post"] }, status: :unauthorized
+    def destroy
+        post = find_post
+        # byebug
+        if post[:user_id] === session[:user_id]
+            post.destroy
+            head :no_content
+        else
+            render json: { errors: ["Not authorized"] }, status: :unauthorized
+        end
     end
-end
-
-# DELETE /posts/:id
-def destroy
-    post = find_post
-    # byebug
-    if post[:user_id] === session[:user_id]
-        post.destroy
-        head :no_content
-    else
-        render json: { errors: ["Not authorized"] }, status: :unauthorized
-    end
-end
-
 
     private
 

@@ -1,22 +1,13 @@
 import React from 'react'
 import { Card, Button, Nav } from 'react-bootstrap'
+import Errors from './Errors'
 
-
-
-
-const Post = ({ post, setPosts, posts }) => {
-    // const { id, title, content } = post;
-
-
-    // const onChange = (e) => {
-    //     setState({...state, [e.target.name]: e.target.value})
-    // }
+const Post = ({ currentUser, errors, post, setPosts, posts }) => {
 
     const handleDeletePost = () => {
         let config = {
             method: 'DELETE'
         }
-
         fetch(`/posts/${post.id}`, config)
         setPosts(
             posts.filter(singlePost => {
@@ -24,7 +15,6 @@ const Post = ({ post, setPosts, posts }) => {
             })
         )
     }
-
 
     return (
         <Card className='post-card'>
@@ -47,9 +37,9 @@ const Post = ({ post, setPosts, posts }) => {
                     {post.content}
                 </Card.Text>
                 <Button onClick={handleDeletePost} variant="primary">Delete post</Button>
+                    <Errors errors={errors} />
             </Card.Body>
         </Card>
     )
 }
-
 export default Post

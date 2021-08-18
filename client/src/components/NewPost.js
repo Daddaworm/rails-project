@@ -29,7 +29,6 @@ const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
 
     }
 
-
     return(
         <div>
             <form onSubmit={onSubmit} >
@@ -43,8 +42,5 @@ const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
             <Errors errors={errors} />
         </div>
     )
-
-
 }
-
 export default NewPost;

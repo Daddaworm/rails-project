@@ -1,9 +1,4 @@
-// import { Link } from 'react-router-dom'
-// import Nav from 'react-bootstrap/Nav'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
-// import Form from 'react-bootstrap/Form'
-// import Button from 'react-bootstrap/Button'
-
 
 const NavBar = ({ currentUser }) => {
 
@@ -26,21 +21,6 @@ const NavBar = ({ currentUser }) => {
         //         </ul>
         //     </nav>
         // </div>
-        // <Nav fill variant="tabs" defaultActiveKey="/home">
-        //         <Nav.Item>
-        //             <Nav.Link href="/home">Home</Nav.Link>
-        //         </Nav.Item>
-        //         <Nav.Item>
-        //             <Nav.Link href="/signup" eventKey="link-1">Signup</Nav.Link>
-        //         </Nav.Item>
-        //         <Nav.Item>
-        //             <Nav.Link href="/login" eventKey="link-2">Login</Nav.Link>
-        //         </Nav.Item>
-        //         <Nav.Item>
-        //             <Nav.Link href="/logout" eventKey="link-3">Logout</Nav.Link>
-        //         </Nav.Item>
-        //     </Nav>
-
         <div>
             <Navbar variant='dark' bg='dark' expand='lg'>
             <Container fluid>
@@ -69,8 +49,6 @@ const NavBar = ({ currentUser }) => {
             </Container>
             </Navbar>
         </div>
-
     )
 }
-
 export default NavBar

@@ -22,9 +22,7 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
         fetch('/login', config)
         .then(resp => resp.json())
         .then(data => handleUserLoginAndSignup(data))
-
     }
-
 
     return(
         <div>
@@ -45,8 +43,5 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
             <Errors errors={errors} />
         </div>
     )
-
-
 }
-
 export default Login;

@@ -3,17 +3,19 @@ import { Card, Button, Nav } from 'react-bootstrap'
 import Errors from './Errors'
 
 const Post = ({ currentUser, errors, post, setPosts, posts }) => {
+    
+    const {id} = post
 
     const handleDeletePost = () => {
         let config = {
             method: 'DELETE'
         }
-        fetch(`/posts/${post.id}`, config)
-        setPosts(
-            posts.filter(singlePost => {
-                return singlePost.id !== post.id 
-            })
-        )
+        fetch(`/posts/${id}`, config)
+        .then(resp => {
+            if (resp.ok){
+                setPosts(posts.filter(post => post.id !== id))
+            }
+        })
     }
 
     return (

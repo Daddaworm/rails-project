@@ -26,7 +26,6 @@ const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
             setPosts([...posts, data.post])
             handleUserLoginAndSignup(data)
         })
-
     }
 
     return(

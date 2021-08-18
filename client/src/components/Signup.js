@@ -5,7 +5,6 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
 
     const [state, setState] = useState({})
     
-
     const onChange = (e) => {
         setState({...state, [e.target.name]: e.target.value})
     }
@@ -24,7 +23,6 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
         .then(resp => resp.json())
         .then(data => handleUserLoginAndSignup(data))
     }
-
 
     return(
         <div>
@@ -49,8 +47,5 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
             <p>Members who sign up will have ability to create and edit their own blogs.</p>
         </div>
     )
-
-
 }
-
 export default Signup;

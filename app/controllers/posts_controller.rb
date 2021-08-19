@@ -39,8 +39,10 @@ class PostsController < ApplicationController
     # PATCH /posts/:id
     def update
         post = find_post
-        post.update(post_params)
-        render json: { post: post }, status: :accepted
+        if post[:user_id] == session[:user_id]
+            post.update(post_params)
+            render json: { post: post }, status: :accepted
+        end
     end
 
     private

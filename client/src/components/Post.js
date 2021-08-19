@@ -42,17 +42,17 @@ const Post = ({ errors, post, setPosts, posts }) => {
     }
 
     return (
-        <Card className='post-card'>
+        <Card id="post-card" border="dark" bg="light">
             <Card.Header>
                 <Nav variant="tabs" defaultActiveKey="#first">
                     <Nav.Item>
-                        <Nav.Link onClick={handleTab} href="#first">Blog post</Nav.Link>
+                        <Nav.Link onClick={ handleTab } href="#first">Blog post</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onClick={handleTab} href="#link">Edit post</Nav.Link>
+                        <Nav.Link onClick={ handleTab } href="#link">Edit post</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onClick={handleTab} href="#disabled">Comments</Nav.Link>
+                        <Nav.Link onClick={ handleTab } href="#disabled">Comments</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Card.Header>

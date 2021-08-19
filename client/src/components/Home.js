@@ -5,19 +5,21 @@ import Post from './Post'
 import Nav from 'react-bootstrap/Nav'
 import { useEffect, useState } from 'react'
 
-const Home = ({ currentUser, errors, posts, setPosts}) => {
+const Home = ({ currentUser, errors, posts, setPosts }) => {
 
     const generatePost = () => {
+        // debugger;
+        console.log(posts, 'Home line 12')
         return posts.map(post => {
-            return <Post key={post.id} post={post} setPosts={setPosts} posts={posts} errors={errors} currentUser={currentUser} />
+            return <Post key={ post.id } post={ post } setPosts={ setPosts } posts={ posts } errors={ errors } currentUser={ currentUser } />
         })
     }
 
     return (
         <div>
-            <Errors errors={errors} />
+            <Errors errors={ errors } />
             <p>home page</p>
-            {generatePost()}
+            { generatePost() }
             <br/>
             {/* <h1>Welcome to your homepage!</h1> */}
             {/* <NewPost /> */}

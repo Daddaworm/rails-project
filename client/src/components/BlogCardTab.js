@@ -5,15 +5,15 @@ import Errors from './Errors'
 const BlogCardTab = ({ post, handleDeletePost, errors }) => {
     return (
         <>
-            <Card.Title>{post.title}</Card.Title>
+            <Card.Title>{ post.title }</Card.Title>
                 <Card.Text>
-                    {post.content}
+                    { post.content }
                 </Card.Text>
                 <Card.Text>
                     Posted by: {post.user.username}
                 </Card.Text>
-            <Button onClick={handleDeletePost} variant="primary">Delete post</Button>
-            <Errors errors={errors} />
+            <Button onClick={ handleDeletePost } variant="primary">Delete post</Button>
+            <Errors errors={ errors } />
         </>
     )
 }

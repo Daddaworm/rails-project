@@ -10,10 +10,6 @@ const Post = ({ errors, post, setPosts, posts }) => {
 
     const [state, setState] = useState('http://localhost:4000/home#first')
 
-    const renderCardContent = () => {
-
-    }
-
     const handleDeletePost = () => {
         let config = {
             method: 'DELETE'
@@ -33,9 +29,9 @@ const Post = ({ errors, post, setPosts, posts }) => {
 
     const renderTab = () => {
         if(state.includes('#first')){
-            return <BlogCardTab post={post} handleDeletePost={handleDeletePost} errors={errors} />
+            return <BlogCardTab post={ post } handleDeletePost={ handleDeletePost } errors={ errors } />
         } else if (state.includes('#link')) {
-            return <EditPost post={post} setPosts={setPosts} posts={posts} />
+            return <EditPost post={ post } setPosts={ setPosts } posts={ posts } />
         } else {
             return <p>Comments section comming soon!</p>
         }

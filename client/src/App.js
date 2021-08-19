@@ -19,6 +19,7 @@ const App = () => {
   const [posts, setPosts] = useState([]);
   
   const handleUserLoginAndSignup = (data) => {
+    console.log(data)
     data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
     if(!data.errors) {
       history.push('/home')
@@ -51,28 +52,28 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar currentUser={currentUser} />
+      <NavBar currentUser={ currentUser } />
         <h1>
         { currentUser ? `Welcome back ${currentUser.username}!` : null }
         </h1>
       <Switch>
         <Route exact path='/home'>
-          <Home errors={errors} currentUser={currentUser} posts={posts} setPosts={setPosts} />
+          <Home errors={ errors } currentUser={ currentUser } posts={ posts } setPosts={ setPosts } />
         </Route>
         <Route exact path='/signup'>
-          <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+          <Signup handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={errors} />
         </Route>
         <Route exact path='/login'>
-            <Login handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+            <Login handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={ errors } />
         </Route>
         <Route exact path='/logout'>
-            <Logout setCurrentUser={setCurrentUser}/>
+            <Logout setCurrentUser={ setCurrentUser }/>
         </Route>
         <Route exact path='/newpost'>
-            <NewPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} setPosts={setPosts} posts={posts} />
+            <NewPost setCurrentUser={ setCurrentUser } handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={ errors } setPosts={ setPosts } posts={ posts } />
         </Route>
         <Route exact path='/editpost'>
-            <EditPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+            <EditPost setCurrentUser={ setCurrentUser } handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={ errors } />
         </Route>
       </Switch>
     </div>

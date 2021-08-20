@@ -50,7 +50,7 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
                     {/* <Form.Label>Password</Form.Label> */}
                     <Form.Control onChange={onChange} name='password' type="password" placeholder="Password" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="outline-primary" type="submit">
                     Submit
                 </Button>
             </Form>

@@ -48,7 +48,7 @@ const EditPost = ({ post, setPosts, posts }) => {
                     <Form.Label>Blog Content</Form.Label>
                     <Form.Control onChange={ onChange } value={ form.content } name="content" type='text' as="textarea" rows={3} />
                 </Form.Group>
-                <Button type="submit" variant="primary">Update post</Button>
+                <Button type="submit" variant="outline-primary">Update post</Button>
             </Form>
         </div>
     )

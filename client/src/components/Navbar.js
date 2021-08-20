@@ -22,7 +22,7 @@ const NavBar = ({ currentUser }) => {
         //     </nav>
         // </div>
         <div>
-            <Navbar variant='dark' bg='dark' expand='lg'>
+            <Navbar variant='dark' bg='primary' expand='lg'>
             <Container fluid>
             <Navbar.Brand href="/home">Blog App</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar-dark-example" />

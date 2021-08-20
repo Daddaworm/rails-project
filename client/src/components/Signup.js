@@ -52,14 +52,12 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label></Form.Label>
                     <Form.Control onChange={onChange} name='password' type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label></Form.Label>
                     <Form.Control onChange={onChange} name='password_confirmation' type="password" placeholder="Password Confirmation" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="outline-primary" type="submit">
                     Sign up
                 </Button>
             </Form>

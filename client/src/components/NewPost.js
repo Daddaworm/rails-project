@@ -48,7 +48,7 @@ const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
                     <Form.Label>Content</Form.Label>
                     <Form.Control onChange={ onChange }  name="content" type='text' as="textarea" placeholder="Content" rows={3} />
                 </Form.Group>
-                <Button type="submit" variant="primary">Create post</Button>
+                <Button type="submit" variant="primary">Create blog post</Button>
             </Form>
 
             <br/>

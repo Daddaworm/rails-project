@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Button, Form } from 'react-bootstrap'
 import Errors from './Errors'
 
 const Signup = ({ handleUserLoginAndSignup, errors }) => {
@@ -28,23 +29,42 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
         <div>
             <br/>
             <h5>Become a member of our community!</h5>
+            <p>Members will have exlusive privilages to post, edit and comment on blogs!</p>
             <br/>
-            <form onSubmit={onSubmit}>
+            {/* <form onSubmit={onSubmit}> */}
                 {/* <label>Username</label> */}
-                <input onChange={onChange} name='username' type='text' placeholder='username' />
-                <br/>
+                {/* <input onChange={onChange} name='username' type='text' placeholder='username' /> */}
+                {/* <br/> */}
                 {/* <label>Password</label> */}
-                <input onChange={onChange} name='password' type='password' placeholder='password' />
-                <br/>
+                {/* <input onChange={onChange} name='password' type='password' placeholder='password' /> */}
+                {/* <br/> */}
                 {/* <label>Password Confirmation</label> */}
-                <input onChange={onChange} name='password_confirmation' type='password' placeholder='password confirmation' />
-                <br/>
-                <br/>
-                <input type='submit' value='Signup'/>
-            </form>
+                {/* <input onChange={onChange} name='password_confirmation' type='password' placeholder='password confirmation' /> */}
+                {/* <br/> */}
+                {/* <br/> */}
+                {/* <input type='submit' value='Signup'/> */}
+            {/* </form> */}
+
+            <Form onSubmit={onSubmit} id='login-form'>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label></Form.Label>
+                    <Form.Control onChange={onChange} name='username' type="text" placeholder="username" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label></Form.Label>
+                    <Form.Control onChange={onChange} name='password' type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label></Form.Label>
+                    <Form.Control onChange={onChange} name='password_confirmation' type="password" placeholder="Password Confirmation" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Sign up
+                </Button>
+            </Form>
             <br/>
             <Errors errors={errors} />
-            <p>Members who sign up will have ability to create and edit their own blogs.</p>
         </div>
     )
 }

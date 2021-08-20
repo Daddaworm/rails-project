@@ -53,9 +53,8 @@ const App = () => {
   return (
     <div className="App">
       <NavBar currentUser={ currentUser } />
-        <h1>
-        { currentUser ? `Welcome back ${currentUser.username}!` : null }
-        </h1>
+        <br/>
+        <h2>{ currentUser ? `Welcome back ${currentUser.username}!` : null }</h2>
       <Switch>
         <Route exact path='/home'>
           <Home errors={ errors } currentUser={ currentUser } posts={ posts } setPosts={ setPosts } />

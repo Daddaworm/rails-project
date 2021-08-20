@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import Errors from './Errors'
 import EditPost from './EditPost'
 import BlogCardTab from './BlogCardTab'
-import { Card, Button, Nav } from 'react-bootstrap'
+import { Card, Nav } from 'react-bootstrap'
 
 const Post = ({ errors, post, setPosts, posts }) => {
 

@@ -1,9 +1,6 @@
 //rafce
 import Errors from './Errors'
-import NewPost from './NewPost'
 import Post from './Post'
-import Nav from 'react-bootstrap/Nav'
-import { useEffect, useState } from 'react'
 
 const Home = ({ currentUser, errors, posts, setPosts }) => {
 
@@ -18,7 +15,9 @@ const Home = ({ currentUser, errors, posts, setPosts }) => {
     return (
         <div>
             <Errors errors={ errors } />
-            <p>home page</p>
+            <br/>
+            <h6>Welcome to Blog App!  Feel free to create a post using the menu bar above.   Once a post is created, you can also edit a post by clicking on the Edit post tab to update your post.</h6>
+            <br/>
             { generatePost() }
             <br/>
             {/* <h1>Welcome to your homepage!</h1> */}

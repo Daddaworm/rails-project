@@ -31,7 +31,7 @@ const NavBar = ({ currentUser }) => {
                     <NavDropdown
                         id="nav-dropdown-dark-example"
                         title="Menu"
-                        menuVariant="dark">
+                        menuvariant="dark">
                         <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
                         <NavDropdown.Item href="/login">Login</NavDropdown.Item>
                         <NavDropdown.Item href="/posts">Your Posts</NavDropdown.Item>

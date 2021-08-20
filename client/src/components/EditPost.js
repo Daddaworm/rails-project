@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Button, Nav, Form } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 
 
 const EditPost = ({ post, setPosts, posts }) => {

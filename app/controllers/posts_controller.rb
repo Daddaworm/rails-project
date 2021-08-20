@@ -3,8 +3,8 @@ class PostsController < ApplicationController
 
     # GET /posts
     def index
-        posts = Post.all.reverse
-        render json: posts
+        posts = Post.all
+        render json: posts.reverse
     end
 
     # GET /posts/:id

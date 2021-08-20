@@ -41,11 +41,11 @@ const EditPost = ({ post, setPosts, posts }) => {
             </form> */}
             <Form onSubmit={ onSubmit } >
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Subject</Form.Label>
+                    <Form.Label>Blog title</Form.Label>
                     <Form.Control onChange={ onChange } value={ form.title } name='title' type="text" placeholder="Blog subject" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Content</Form.Label>
+                    <Form.Label>Blog Content</Form.Label>
                     <Form.Control onChange={ onChange } value={ form.content } name="content" type='text' as="textarea" rows={3} />
                 </Form.Group>
                 <Button type="submit" variant="primary">Update post</Button>

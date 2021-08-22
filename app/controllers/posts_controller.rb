@@ -44,8 +44,6 @@ class PostsController < ApplicationController
             post.update!(post_params)
             # byebug
             render json: post, include: ['user'], status: :accepted
-        else
-            render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
     end
 

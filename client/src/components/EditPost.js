@@ -34,8 +34,7 @@ const EditPost = ({ post, setPosts, posts, blogTab, editTab, commentTab, setStat
         blogTab.current.className = "nav-link active"
         editTab.current.className = "nav-link"
         setState('#first')
-        
-    }         
+    }
 
     return (
         <div>

@@ -6,16 +6,16 @@ const BlogCardTab = ({ post, handleDeletePost, errors }) => {
 
     return (
         <>
-            <Card.Title>{ post.title }</Card.Title>
-                <Card.Text>
-                    { post.content }
-                </Card.Text>
-                <hr></hr>
-                <Card.Text>
-                    <p><small>Posted by: { post.user.username } on { post.created_at }</small></p> 
-                </Card.Text>
-            <Button onClick={ handleDeletePost } variant="outline-primary">Delete post</Button>
-            <Errors errors={ errors } />
+            <Card.Title>{post.title}</Card.Title>
+            <Card.Text>
+                {post.content}
+            </Card.Text>
+            <hr></hr>
+            <Card.Text>
+                <p><small>Posted by: {post.user.username} on {post.created_at}</small></p>
+            </Card.Text>
+            <Button onClick={handleDeletePost} variant="outline-primary" size="sm" >Delete post</Button>
+            <Errors errors={errors} />
         </>
     )
 }

@@ -28,24 +28,14 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
     return (
         <div>
             <br />
+            <br />
             <h6>Already a member?  Please log in below.</h6>
-            <br/>
-            {/* <form onSubmit={onSubmit}>
-                <label>Username</label>
-                <input onChange={onChange} name='username' type='text' placeholder='username' />
-                <br />
-                <label>Password</label>
-                <input onChange={onChange} name='password' type='password' placeholder='password' />
-                <br />
-                <input type='submit' value='Login' />
-            </form>  */}
-
+            <br />
             <Form onSubmit={onSubmit} id='login-form'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     {/* <Form.Label>Username</Form.Label> */}
                     <Form.Control onChange={onChange} name='username' type="text" placeholder="username" />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     {/* <Form.Label>Password</Form.Label> */}
                     <Form.Control onChange={onChange} name='password' type="password" placeholder="Password" />
@@ -54,7 +44,6 @@ const Login = ({ handleUserLoginAndSignup, errors }) => {
                     Submit
                 </Button>
             </Form>
-
             <br />
             <Errors errors={errors} />
         </div>

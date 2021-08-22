@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 
 
-const EditPost = ({ post, setPosts, posts }) => {
+const EditPost = ({ post, setPosts, posts, blogTab, editTab, commentTab, setState }) => {
     
     const { id } = post
 
@@ -26,19 +26,19 @@ const EditPost = ({ post, setPosts, posts }) => {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
-                setPosts(posts.map(singlePost => singlePost.id === id ? data : singlePost))}
-            )
+                if(!data.error) {
+                    setPosts(posts.map(singlePost => singlePost.id === id ? data : singlePost))
+                }
+            } 
+        )
+        blogTab.current.className = "nav-link active"
+        editTab.current.className = "nav-link"
+        setState('#first')
+        
     }         
 
     return (
         <div>
-            {/* <form id='edit-form' onSubmit={onSubmit} >
-                <label for="title">Edit blog title:</label><br />
-                <input onChange={onChange} type="text" id="title" name="title" value={form.title} /><br />
-                <label for="content">Edit content:</label><br />
-                <textarea onChange={onChange} type="text" id="content" name="content" value={form.content} /><br /><br /> */}
-                {/* <input type="submit" value="Update"/>
-            </form> */}
             <Form onSubmit={ onSubmit } >
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Blog title</Form.Label>
@@ -48,7 +48,7 @@ const EditPost = ({ post, setPosts, posts }) => {
                     <Form.Label>Blog Content</Form.Label>
                     <Form.Control onChange={ onChange } value={ form.content } name="content" type='text' as="textarea" rows={3} />
                 </Form.Group>
-                <Button type="submit" variant="outline-primary">Update post</Button>
+                <Button type="submit" variant="outline-primary" size="sm" >Update post</Button>
             </Form>
         </div>
     )

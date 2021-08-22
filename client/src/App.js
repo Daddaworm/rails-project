@@ -17,11 +17,11 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [errors, setErrors] = useState([]);
   const [posts, setPosts] = useState([]);
-  
+
   const handleUserLoginAndSignup = (data) => {
     console.log(data)
     data.errors ? setErrors(data.errors) : setCurrentUser(data.user)
-    if(!data.errors) {
+    if (!data.errors) {
       history.push('/home')
       setErrors([])
     }
@@ -29,54 +29,52 @@ const App = () => {
 
   const checkSessionId = () => {
     fetch('/me')
-    .then(resp => resp.json())
-    .then(data => setCurrentUser(data.user))
+      .then(resp => resp.json())
+      .then(data => setCurrentUser(data.user))
   }
-  
-  useEffect(checkSessionId, []);
 
+  useEffect(checkSessionId, []);
 
   const fetchPosts = () => {
     fetch('/posts')
-    .then(resp => resp.json())
-    .then(data => {
-      console.log(data)
-      setPosts(data)
-    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data)
+        setPosts(data)
+      })
   }
 
   useEffect(() => {
     fetchPosts()
   }, [])
-  
+
 
   return (
     <div className="App">
-      <NavBar currentUser={ currentUser } />
-        <br/>
-        <h2>{ currentUser ? `Welcome back ${currentUser.username}!` : null }</h2>
+      <NavBar currentUser={currentUser} />
+      <br />
+      <h2>{currentUser ? `Welcome back ${currentUser.username}!` : null}</h2>
       <Switch>
         <Route exact path='/home'>
-          <Home errors={ errors } currentUser={ currentUser } posts={ posts } setPosts={ setPosts } />
+          <Home errors={errors} currentUser={currentUser} posts={posts} setPosts={setPosts} />
         </Route>
         <Route exact path='/signup'>
-          <Signup handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={errors} />
+          <Signup handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
         <Route exact path='/login'>
-            <Login handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={ errors } />
+          <Login handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
         <Route exact path='/logout'>
-            <Logout setCurrentUser={ setCurrentUser }/>
+          <Logout setCurrentUser={setCurrentUser} />
         </Route>
         <Route exact path='/newpost'>
-            <NewPost setCurrentUser={ setCurrentUser } handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={ errors } setPosts={ setPosts } posts={ posts } />
+          <NewPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} setPosts={setPosts} posts={posts} />
         </Route>
         <Route exact path='/editpost'>
-            <EditPost setCurrentUser={ setCurrentUser } handleUserLoginAndSignup={ handleUserLoginAndSignup } errors={ errors } />
+          <EditPost setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
       </Switch>
     </div>
   );
 }
-
 export default App;

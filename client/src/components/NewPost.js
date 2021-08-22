@@ -6,9 +6,9 @@ import Errors from './Errors'
 const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
 
     const [state, setState] = useState({})
-    
+
     const onChange = (e) => {
-        setState({...state, [e.target.name]: e.target.value})
+        setState({ ...state, [e.target.name]: e.target.value })
     }
 
     const onSubmit = (e) => {
@@ -22,36 +22,29 @@ const NewPost = ({ handleUserLoginAndSignup, errors, setPosts, posts }) => {
             body: JSON.stringify(state)
         }
         fetch('/posts', config)
-        .then(resp => resp.json())
-        .then(data => {
-            setPosts([data, ...posts])
-            handleUserLoginAndSignup(data)
-        })
+            .then(resp => resp.json())
+            .then(data => {
+                setPosts([data, ...posts])
+                handleUserLoginAndSignup(data)
+            })
     }
 
-    return(
+    return (
         <div>
-            {/* <form onSubmit={onSubmit} >
-                <label for="title">Blog Title:</label><br/>
-                    <input onChange={onChange} type="text" id="title" name="title" /><br/>
-                <label for="content">Content:</label><br/>
-                    <textarea onChange={onChange} type="text" id="content" name="content" /><br/><br/>
-                    <input type="submit" value="Submit"/>
-            </form>  */}
-            <br/>
-            <Form id='create-form' onSubmit={ onSubmit } >
+            <br />
+            <br />
+            <Form id='create-form' onSubmit={onSubmit} >
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Blog title</Form.Label>
-                    <Form.Control onChange={ onChange }  name='title' type="text" placeholder="Blog title" />
+                    <Form.Control onChange={onChange} name='title' type="text" placeholder="Blog title" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Content</Form.Label>
-                    <Form.Control onChange={ onChange }  name="content" type='text' as="textarea" placeholder="Content" rows={3} />
+                    <Form.Control onChange={onChange} name="content" type='text' as="textarea" placeholder="Content" rows={3} />
                 </Form.Group>
                 <Button type="submit" variant="outline-primary">Create blog post</Button>
             </Form>
-
-            <br/>
+            <br />
             <Errors errors={errors} />
         </div>
     )

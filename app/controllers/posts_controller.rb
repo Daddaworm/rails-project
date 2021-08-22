@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+        before_action :authorize
+        skip_before_action :authorize, only: [:index]
 
     # GET /posts
     def index
@@ -43,6 +44,8 @@ class PostsController < ApplicationController
             post.update!(post_params)
             # byebug
             render json: post, include: ['user'], status: :accepted
+        else
+            render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
     end
 
@@ -54,6 +57,10 @@ class PostsController < ApplicationController
 
     def post_params
         params.permit(:title, :content)
+    end
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 
 

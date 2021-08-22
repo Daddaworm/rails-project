@@ -13,7 +13,7 @@ const Logout = ({ setCurrentUser }) => {
         fetch('/logout', config)
         handleLogout()
     })
-    
+
     const handleLogout = () => {
         setCurrentUser(null)
         setTimeout(() => {
@@ -21,12 +21,12 @@ const Logout = ({ setCurrentUser }) => {
         }, 2000)
     }
 
-    return(
+    return (
         <div>
-            <br/>
+            <br />
+            <br />
             <h1>Logging out...</h1>
         </div>
     )
 }
-
 export default Logout

@@ -27,4 +27,4 @@
 /config/master.key
 
 # we added this while trying to solve heroku problems
-# /node_modules
+/client/node_modules

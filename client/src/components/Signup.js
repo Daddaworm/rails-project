@@ -30,7 +30,7 @@ const Signup = ({ handleUserLoginAndSignup, errors }) => {
             <br />
             <br />
             <h5>Become a member of our community!</h5>
-            <p>Members will have exlusive privilages to post, edit and comment on blogs!</p>
+            <p>Members will have exclusive privilages to post, edit and comment on blogs!</p>
             <br />
             <Form onSubmit={onSubmit} id='login-form'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

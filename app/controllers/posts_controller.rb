@@ -2,6 +2,12 @@ class PostsController < ApplicationController
         before_action :authorize
         skip_before_action :authorize, only: [:index]
 
+    # POST /alpha
+    def alpha
+        alpha_post = Post.alpha
+        render json: alpha_post
+    end
+
     # GET /posts
     def index
         posts = Post.all

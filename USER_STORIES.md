@@ -3,7 +3,6 @@
 Idea #1
 
 Blog App
-
 user ---------------------------------< comments >-------------------------< posts 
 has_many :posts                          belongs_to :user                     has_many :comments
                                          belongs_to :post                     belongs_to :user
